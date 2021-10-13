@@ -11,7 +11,7 @@ public class ResourceDTO {
     private String title;
     private Type type;
     private Thematic thematic;
-    private boolean available;
+    private Boolean available;
     private Date date;
 
     public ResourceDTO() {
@@ -49,11 +49,11 @@ public class ResourceDTO {
         this.thematic = thematic;
     }
 
-    public boolean isAvailable() {
+    public Boolean getAvailable() {
         return available;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(Boolean available) {
         this.available = available;
     }
 
