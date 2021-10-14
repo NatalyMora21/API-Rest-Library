@@ -28,11 +28,10 @@ public class ResourceController {
         return new ResponseEntity(resourceService.getResourceAll(), HttpStatus.OK);
     }
 
-    /*@GetMapping("/resource/filter")
+    @GetMapping("/resource/filter")
     public ResponseEntity<List<ResourceDTO>> findAllTypeAndThematic(@RequestParam String type, String thematic) {
-        System.out.println(type + "---   " +thematic);
         return new ResponseEntity(resourceService.getResourceFilter(type,thematic), HttpStatus.OK);
-    }*/
+    }
 
     @PostMapping("/create")
     public ResponseEntity<ResourceDTO> create(@RequestBody ResourceDTO resourceDTO) {
