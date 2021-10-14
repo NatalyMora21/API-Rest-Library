@@ -50,5 +50,21 @@ public class ResourceService {
         //Retornar que no se puedo hacer la operación por falta de stock
     }
 
+    public ResourceDTO returnResource(ResourceDTO resourceDTO) {
 
+        Resource resource = mapper.fromDTO(resourceDTO);
+        Resource infoResource = resourceRespository.findById(resource.getId()).orElseThrow(() -> new RuntimeException("Resource not found"));
+        if(infoResource.getLending()>0) {
+            infoResource.setStock(infoResource.getStock()+1);
+            infoResource.setLending(infoResource.getLending()-1);
+        }
+
+        return mapper.fromCollection(resourceRespository.save(infoResource));
+    }
+
+
+    /*public List<ResourceDTO> getResourceFilter(String type, String thematic) {
+
+
+    }*/
 }

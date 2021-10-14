@@ -28,6 +28,12 @@ public class ResourceController {
         return new ResponseEntity(resourceService.getResourceAll(), HttpStatus.OK);
     }
 
+    /*@GetMapping("/resource/filter")
+    public ResponseEntity<List<ResourceDTO>> findAllTypeAndThematic(@RequestParam String type, String thematic) {
+        System.out.println(type + "---   " +thematic);
+        return new ResponseEntity(resourceService.getResourceFilter(type,thematic), HttpStatus.OK);
+    }*/
+
     @PostMapping("/create")
     public ResponseEntity<ResourceDTO> create(@RequestBody ResourceDTO resourceDTO) {
         return new ResponseEntity(resourceService.newResource(resourceDTO), HttpStatus.CREATED);
@@ -37,6 +43,14 @@ public class ResourceController {
     public ResponseEntity<ResourceDTO> load(@RequestBody ResourceDTO resourceDTO) {
         if (resourceDTO.getId()!= null) {
             return new ResponseEntity(resourceService.newLoad(resourceDTO), HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/devolucion")
+    public ResponseEntity<ResourceDTO> returnResource(@RequestBody ResourceDTO resourceDTO) {
+        if (resourceDTO.getId()!= null) {
+            return new ResponseEntity(resourceService.returnResource(resourceDTO), HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
