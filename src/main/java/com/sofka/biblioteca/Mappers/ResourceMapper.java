@@ -16,7 +16,8 @@ public class ResourceMapper {
         resource.setTitle(dto.getTitle());
         resource.setType(dto.getType());
         resource.setThematic(dto.getThematic());
-        resource.setAvailable(dto.getAvailable());
+        resource.setStock(dto.getStock());
+        resource.setLending(dto.getLending());
         resource.setDate(dto.getDate());
 
         return resource;
@@ -29,7 +30,8 @@ public class ResourceMapper {
         resourceDTO.setTitle(collection.getTitle());
         resourceDTO.setType(collection.getType());
         resourceDTO.setThematic(collection.getThematic());
-        resourceDTO.setAvailable(collection.getAvailable());
+        resourceDTO.setStock(collection.getStock());
+        resourceDTO.setLending(collection.getLending());
         resourceDTO.setDate(collection.getDate());
 
         return resourceDTO;

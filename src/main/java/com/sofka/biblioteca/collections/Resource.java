@@ -5,6 +5,7 @@ import com.sofka.biblioteca.collections.values.Type;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Document
@@ -15,9 +16,9 @@ public class Resource {
     private String title;
     private Type type;
     private Thematic thematic;
-    private Boolean available;
-    private Date date;
-
+    private Integer stock;
+    private Integer lending;
+    private LocalDate date;
 
     public String getId() {
         return id;
@@ -51,19 +52,27 @@ public class Resource {
         this.thematic = thematic;
     }
 
-    public Boolean getAvailable() {
-        return available;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setAvailable(Boolean available) {
-        this.available = available;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
-    public Date getDate() {
+    public Integer getLending() {
+        return lending;
+    }
+
+    public void setLending(Integer lending) {
+        this.lending = lending;
+    }
+
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }
